@@ -4,6 +4,7 @@
 
 #include "global.h"
 
+Notecard notecard;
 // Set if any of the sensors fails to initialize
 const char *failure = NULL;
 
@@ -13,29 +14,28 @@ void actionDoublePress(void);
 
 // Arduino one-time setup
 void setup() {
-	
 	// Debug
 #ifdef serialDebugOut
     serialDebugOut.begin(115200);
     while (!serialDebugOut) {};
 	serialDebugOut.println("");
 #if USE_NOTECARD
-    NoteSetDebugOutputStream(serialDebugOut);
+    notecard.setDebugOutputStream(serialDebugOut);
 #endif
 #endif
 
 	// Initialize the physical I/O channel to the Notecard
 #if USE_NOTECARD
 #ifdef serialNotecard
-	NoteInitSerial(serialNotecard, 9600);
+	notecard.begin(serialNotecard, 9600);
 #else
-	NoteInitI2C();
+	notecard.begin();
 #endif
 #endif
 
 	// Initialize the Notecard so that it communicates with our account on Notehub and stays online
 #if USE_NOTECARD
-	J *req = NoteNewRequest("service.set");
+	J *req = NoteNewRequest("hub.set");
 	if (req == NULL) {
 		failure = "note";
 	} else {

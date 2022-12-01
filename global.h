@@ -6,6 +6,7 @@
 #include "board.h"
 #if USE_NOTECARD
 #include <Notecard.h>
+extern Notecard notecard;
 #endif
 
 // Debug output prefers to go out to serial, unless it isn't available and we need trace
