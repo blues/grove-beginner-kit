@@ -39,7 +39,9 @@ void setup() {
 	if (req == NULL) {
 		failure = "note";
 	} else {
-		JAddStringToObject(req, "product", myProductID);
+		if (PRODUCT_UID[0]) {
+			JAddStringToObject(req, "product", PRODUCT_UID);
+		}
 		JAddStringToObject(req, "mode", "continuous");
 		NoteRequest(req);
 	}
