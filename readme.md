@@ -6,11 +6,11 @@ Add this to the comma-separated "Additional Boards Manager URLs" field in Arduin
 https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_legacy_seeeduino_boards_index.json
 
 Must be installed via Arduino menu Sketch / Include Library / Manage Libraries...
-Grove Temperature and Humidity Sensor library by Seeed Studio
-Grove - Barometer Sensor BMP280 library
-U8g2 by oliver
-Blues Wireless Notecard
-Grove-3-Axis-Digital-Accelerometer-2g-to-16g-LIS3DHTR
+- Grove Temperature and Humidity Sensor library
+- Grove - Barometer Sensor BMP280 library
+- U8g2_for_Adafruit_GFX
+- Blues Wireless Notecard
+- Grove-3-Axis-Digital-Accelerometer-2g-to-16g-LIS3DHTR
 
 
 In Arduino IDE:
