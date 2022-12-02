@@ -15,7 +15,7 @@ jobs:
       max-parallel: 1
       matrix:
         example-sketch:
-          - ./grove-beginner-kit.ino
+          - grove-beginner-kit.ino
         fully-qualified-board-name:
           - Seeeduino:avr:Lotus
     steps:
