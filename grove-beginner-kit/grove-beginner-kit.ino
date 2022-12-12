@@ -35,7 +35,7 @@ void setup() {
 
 	// Initialize the Notecard so that it communicates with our account on Notehub and stays online
 #if USE_NOTECARD
-	J *req = NoteNewRequest("hub.set");
+	J *req = notecard.newRequest("hub.set");
 	if (req == NULL) {
 		failure = "note";
 	} else {
@@ -43,7 +43,7 @@ void setup() {
 			JAddStringToObject(req, "product", PRODUCT_UID);
 		}
 		JAddStringToObject(req, "mode", "continuous");
-		NoteRequest(req);
+		notecard.sendRequest(req);
 	}
 #endif
 
