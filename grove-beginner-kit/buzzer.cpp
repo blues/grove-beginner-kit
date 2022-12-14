@@ -12,7 +12,7 @@
 #define SHORT_TUNE	7
 
 // Tune to play, where a space represents a rest
-char tune[] = "ccggaagffeeddc "; 
+char tune[] = "ccggaagffeeddc ";
 uint8_t beats[] = { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4 };
 #define tempo 300
 
@@ -36,7 +36,7 @@ void playTone(int tone, int duration) {
 void playNote(char note, int duration) {
     char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
     int tones[] = { 1915, 1700, 1519, 1432, 1275, 1136, 1014, 956 };
-    for (int i = 0; i < sizeof(names); i++) {
+    for (unsigned i = 0; i < sizeof(names); i++) {
         if (names[i] == note) {
             playTone(tones[i], duration);
         }

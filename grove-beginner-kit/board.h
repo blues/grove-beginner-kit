@@ -86,4 +86,7 @@
 // "claim" a unique product ID for your device.  It could be something as simple as as your email
 // address in reverse, such as "com.gmail.smith.lisa.test-device" or "com.outlook.gates.bill.demo"
 
-#define myProductID "org.coca-cola.soda.vending-machine.v2"
+#ifndef PRODUCT_UID
+#define PRODUCT_UID ""		// "com.my-company.my-name:my-project"
+#pragma message "PRODUCT_UID is not defined in this example. Please ensure your Notecard has a product identifier set before running this example or define it in code here. More details at https://bit.ly/product-uid"
+#endif

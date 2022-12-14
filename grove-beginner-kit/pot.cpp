@@ -46,7 +46,7 @@ void potMeasure() {
 
 	// Add to notecard
 #if USE_NOTECARD
-	J *req = NoteNewRequest("note.add");
+	J *req = notecard.newRequest("note.add");
 	if (req != NULL) {
 		J *body = JCreateObject();
 		if (body != NULL) {
@@ -54,7 +54,7 @@ void potMeasure() {
 			JAddItemToObject(req, "body", body);
 		}
 		JAddStringToObject(req, "file", "potentiometer.qo");
-		NoteRequest(req);
+		notecard.sendRequest(req);
 	}
 #endif
 

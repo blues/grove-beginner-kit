@@ -1,0 +1,33 @@
+name: Note Arduino CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_examples: # job id
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
+    continue-on-error: true
+    strategy:
+      max-parallel: 1
+      matrix:
+        example-sketch:
+          - grove-beginner-kit/grove-beginner-kit.ino
+        fully-qualified-board-name:
+          - Seeeduino:avr:Lotus
+    steps:
+      - name: Checkout Code
+        id: checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Compile Examples
+        id: compile_examples
+        uses: ./.github/actions/compile-examples
+        with:
+          libraries: 'Blues Wireless Notecard;Grove Temperature And Humidity Sensor;Grove - Barometer Sensor BMP280;Grove-3-Axis-Digital-Accelerometer-2g-to-16g-LIS3DHTR'
+          sketch: ${{ matrix.example-sketch }}
+          fully-qualified-board-name: ${{ matrix.fully-qualified-board-name }}
